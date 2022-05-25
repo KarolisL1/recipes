@@ -15,14 +15,14 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
-    <nav>
-        <h1>Add New Recipe</h1>
-        <div>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/logout">Logout</a>
-        </div>
+    <nav class="d-flex flex-row justify-content-between w-50">
+            <h1>Add New Recipe</h1>
+            <div>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+            </div>
     </nav>
-    <form action="/recipes/create" method="POST">
+    <form action="/recipes/create" method="POST" class="container">
         <div class="mb-1 w-25">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="name">
