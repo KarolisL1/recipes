@@ -10,7 +10,6 @@
 <body>
     <nav class="d-flex flex-row justify-content-between w-50">
         <h1>Welcome {{session['firstname']}}</h1>
-        <h1>{{recipe.name}}</h1>
         <div>
             <a href="/dashboard">Dashboard</a>
             <a href="/logout">Logout</a>
@@ -19,7 +18,8 @@
 
     <div class="card w-25">
         <div class="card-body">
-            <h4 class="card-title">{{recipe.description}}</h4>
+            <h3 class="card-title">{{recipe.description}}</h3>
+            <h4>{{recipe.name}}</h4>
             <p class="card-text">
                 {{recipe.instructions}}<br>
                 Under 30 minutes: 
