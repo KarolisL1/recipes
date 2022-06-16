@@ -15,38 +15,40 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
-    <nav class="d-flex flex-row justify-content-between w-50">
-            <h1>Add New Recipe</h1>
-            <div>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/logout">Logout</a>
+    <div class="container">
+        <nav class="d-flex flex-row justify-content-between w-50">
+                <h1>Add New Recipe</h1>
+                <div>
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/logout">Logout</a>
+                </div>
+        </nav>
+        <form action="/recipes/create" method="POST" class="container">
+            <div class="mb-1 w-25">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
             </div>
-    </nav>
-    <form action="/recipes/create" method="POST" class="container">
-        <div class="mb-1 w-25">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name">
-        </div>
-        <div class="mb-1 w-25">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-        </div>
-        <div class="mb-1 w-25">
-            <label for="instructions">Instructions</label>
-            <textarea class="form-control" id="instructions" name="instructions" rows="3"></textarea>
-        </div>
-        <div class="mb-1 w-25">
-            <label for="under_30_min">Under 30 Minutes?</label>
-            <select class="form-control" id="under_30_min" name="under_30_min">
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-            </select>
-        </div><br>
-        <div class="mb-1">
-            <label for="datemadeon">Date Made On:</label>
-            <input type="date" id="start" name="date_made_on" min="2018-01-01" max="2018-12-31">
-        </div><br>
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+            <div class="mb-1 w-25">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="mb-1 w-25">
+                <label for="instructions">Instructions</label>
+                <textarea class="form-control" id="instructions" name="instructions" rows="3"></textarea>
+            </div>
+            <div class="mb-1 w-25">
+                <label for="under_30_min">Under 30 Minutes?</label>
+                <select class="form-control" id="under_30_min" name="under_30_min">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div><br>
+            <div class="mb-1">
+                <label for="datemadeon">Date Made On:</label>
+                <input type="date" id="start" name="date_made_on" min="2018-01-01" max="2018-12-31">
+            </div><br>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
 </body>
 </html>
