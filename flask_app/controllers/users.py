@@ -17,8 +17,8 @@ def register():
         'email' : request.form['email'],
         'password' : bcrypt.generate_password_hash(request.form['password'])
     }
-    print(data)
     if not User.validate_registration(request.form):
+        flash('Please fill out all fields.')
         return redirect('/')
     User.user_registration(data) # saving user to database
     flash('You have successfully registered!')
@@ -38,7 +38,6 @@ def login():
     session['user_id'] = user.id
     session['firstname'] = user.first_name
     return redirect('/dashboard')
-
 
 @app.route('/logout')
 def logout():

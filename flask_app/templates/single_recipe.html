@@ -8,30 +8,31 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="d-flex flex-row justify-content-between w-50">
-        <h1>Welcome {{session['firstname']}}</h1>
-        <div>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/logout">Logout</a>
+    <div class="container py-3 w-75">
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom justify-content-between">
+            <h1>Welcome {{session['firstname']}}</h1>
+            <div class="row align-items-center">
+                <a class="btn-link col" href="/dashboard">Dashboard</a>
+                <a class="btn-link col" href="/logout">Logout</a>
+            </div>
         </div>
-    </nav>
-
-    <div class="card w-25">
-        <div class="card-body">
-            <h3 class="card-title">{{recipe.description}}</h3>
-            <h4>{{recipe.name}}</h4>
-            <p class="card-text">
-                {{recipe.instructions}}<br>
-                Under 30 minutes: 
-                {% if recipe.under_30_min == 1 %} Yes
-                {% else %} No
-                {% endif %}<br>
-                Date Made: {{recipe.date_made_on}}<br>
-            </p>
-            {% if recipe.user_id == session['user_id'] %}
-            <a class="btn btn-primary" href="/recipe/{{recipe.id}}/edit">Edit</a>
-            <a class="btn btn-primary" href="/recipe/{{recipe.id}}/delete">Delete</a>
-            {% endif %}
+        <div class="card w-50">
+            <div class="card-body">
+                <h3 class="card-title">{{recipe.description}}</h3>
+                <h4>{{recipe.name}}</h4>
+                <p class="card-text">
+                    {{recipe.instructions}}<br>
+                    Under 30 minutes: 
+                    {% if recipe.under_30_min == 1 %} Yes
+                    {% else %} No
+                    {% endif %}<br>
+                    Date Made: {{recipe.date_made_on}}<br>
+                </p>
+                {% if recipe.user_id == session['user_id'] %}
+                <a class="btn btn-primary" href="/recipe/{{recipe.id}}/edit">Edit</a>
+                <a class="btn btn-primary" href="/recipe/{{recipe.id}}/delete">Delete</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 </body>

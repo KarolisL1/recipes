@@ -15,38 +15,40 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
-    <nav class="d-flex flex-row justify-content-between w-50">
-        <h1>Edit Recipe</h1>
-        <div>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/logout">Logout</a>
-        </div>
-    </nav>
-    <form action="/recipe/{{recipe.id}}/update" method="POST" class="container">
-        <div class="mb-1 w-25">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" value="{{recipe.name}}"><br>
-        </div>
-        <div class="mb-1 w-25">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3">{{recipe.description}}</textarea>
-        </div>
-    <div class="mb-1 w-25">
-        <label for="instructions">Instructions</label>
-        <textarea class="form-control" id="instructions" name="instructions" rows="3">{{recipe.instructions}}</textarea>
+    <div class="container py-3 w-75">
+        <nav class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom justify-content-between">
+            <h1>Edit Recipe</h1>
+            <div class="row align-items-center">
+                <a class="btn-link col" href="/dashboard">Dashboard</a>
+                <a class="btn-link col" href="/logout">Logout</a>
+            </div>
+        </nav>
+        <form action="/recipe/{{recipe.id}}/update" method="POST" class="container">
+            <div class="mb-1 w-25">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="{{recipe.name}}">
+            </div>
+            <div class="mb-1 w-25">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3">{{recipe.description}}</textarea>
+            </div>
+            <div class="mb-1 w-25">
+                <label for="instructions">Instructions</label>
+                <textarea class="form-control" id="instructions" name="instructions" rows="3">{{recipe.instructions}}</textarea>
+            </div>
+            <div class="mb-1 w-25">
+                <label for="under_30_min">Under 30 Minutes?</label>
+                <select name="under_30_min">
+                    <option value="1" {% if recipe.under_30_min == 1 %} selected {% endif %}>Yes</option>
+                    <option value="0" {% if recipe.under_30_min == 0 %} selected {% endif %}>No</option>
+                </select><br>
+            </div>
+            <div class="mb-1">
+                <label for="datemadeon">Date Made On:</label>
+                <input type="date" name="date_made_on" value="{{recipe.date_made_on}}"><br>
+            </div>
+            <input type="submit" value="Update">
+        </form>
     </div>
-    <div class="mb-1 w-25">
-        <label for="under_30_min">Under 30 Minutes?</label>
-        <select name="under_30_min">
-            <option value="1" {% if recipe.under_30_min == 1 %} selected {% endif %}>Yes</option>
-            <option value="0" {% if recipe.under_30_min == 0 %} selected {% endif %}>No</option>
-        </select><br>
-    </div>
-    <div class="mb-1">
-        <label for="datemadeon">Date Made On:</label>
-        <input type="date" name="date_made_on" value="{{recipe.date_made_on}}"><br>
-    </div>
-    <input type="submit" value="Update">
-    </form>
 </body>
 </html>

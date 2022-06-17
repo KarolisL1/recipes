@@ -8,15 +8,16 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <div class="container">
-        <nav class="d-flex flex-row justify-content-between w-50">
+    <div class="container py-3 w-75">
+        <!-- <div class="d-flex flex-row justify-content-between w-100"> -->
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom justify-content-between">
             <h1>Welcome {{session['firstname']}}</h1>
-            <div>
-                <a class="btn-link" href="/recipes/new">Create</a>
-                <a class="btn-link" href="/logout">Logout</a>
+            <div class="row align-items-center">
+                <a class="btn-link col" href="/recipes/new">Create</a>
+                <a class="btn-link col" href="/logout">Logout</a>
             </div>
-        </nav>
-        <table class="table table-sm w-50 table-striped">
+        </div>
+        <table class="table table-sm table-striped w-100">
             <thead>
                 <tr>
                     <th>Name</th>
